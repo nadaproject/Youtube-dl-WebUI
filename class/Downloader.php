@@ -181,9 +181,10 @@ class Downloader
 
 	private function do_download()
 	{
+		$date_filename = date('Y-m-d_H-i-s', time());
 		$cmd = "youtube-dl";
 		$cmd .= " -o ".$this->config["outputFolder"]."/";
-		$cmd .= escapeshellarg("%(title)s-%(uploader)s.%(ext)s");
+		$cmd .= escapeshellarg("$date_filename-%(title)s-%(uploader)s.%(ext)s");
 
 		if($this->audio_only)
 		{
